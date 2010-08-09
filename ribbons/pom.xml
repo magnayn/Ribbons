@@ -1,0 +1,150 @@
+<project>
+
+  <!-- Module -->
+
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.nirima.ribbons</groupId>
+  <artifactId>ribbons</artifactId>
+  <packaging>swc</packaging>
+  
+   <parent>
+  		<groupId>com.nirima</groupId>
+ 		 <artifactId>ribbons</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent> 
+  
+<!--  
+  <properties>
+  <flex.home>${env.FLEX_HOME}</flex.home>
+  </properties>
+-->
+  
+  <build>
+		<sourceDirectory>src/main/flex</sourceDirectory> 
+		<plugins>
+
+
+<plugin>
+   <artifactId>maven-dependency-plugin</artifactId>
+      <executions>
+         <execution>
+            <id>copy-themes-for-flex4</id>
+            <phase>generate-resources</phase>
+            <goals>
+               <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+               <includeTypes>swc,css</includeTypes>
+               <outputDirectory>${project.build.directory}/themes</outputDirectory>
+               <overWriteIfNewer>true</overWriteIfNewer>
+               <includeGroupIds>com.adobe.flex.framework</includeGroupIds>
+               <includeArtifactIds>halo,spark</includeArtifactIds>
+               <includeClassifiers>theme</includeClassifiers>
+               <stripVersion>true</stripVersion>
+            </configuration>
+       </execution>
+    </executions>
+</plugin> 
+
+		<plugin>
+        	<groupId>org.sonatype.flexmojos</groupId>
+            <artifactId>flexmojos-maven-plugin</artifactId>
+           <executions>
+
+              <execution>
+            <goals>
+              <goal>optimize</goal>
+            </goals> 
+          </execution>
+        </executions>
+			<configuration>
+				<resourceBundlePath>${basedir}/src/main/flex/locale/{locale}</resourceBundlePath>
+				<locales>
+					<locale>en_US</locale>
+				</locales>
+				
+				<mergeResourceBundle>true</mergeResourceBundle> 
+				
+				<themes>
+			         <theme>${project.build.directory}/themes/spark-theme.css</theme>
+			         <theme>${project.build.directory}/themes/halo-theme.swc</theme>
+			      </themes> 
+			</configuration>
+            <!--
+                                <dependencies>
+                                        <dependency>
+                                                <groupId>com.adobe.flex</groupId>
+                                                <artifactId>compiler</artifactId>
+                                                <version>3.2-fb3</version>
+                                                <type>pom</type>
+                                        </dependency>
+                                        </dependencies>
+                                        -->
+		</plugin>
+	
+		</plugins>
+	
+	</build>
+  	
+        
+  <dependencies>
+  
+
+  	
+   <dependency>
+      <groupId>com.adobe.flexunit</groupId>
+      <artifactId>flexunit</artifactId>
+      <version>0.90</version>
+      <type>swc</type>
+      <scope>test</scope>
+    </dependency>
+	
+	<dependency>
+   <groupId>com.adobe.flex.framework</groupId>
+   <artifactId>halo</artifactId>
+   <version>${flex.sdk.version}</version>
+    <classifier>theme</classifier> 
+   <type>swc</type>
+   <scope>theme</scope>
+</dependency>
+<dependency>
+   <groupId>com.adobe.flex.framework</groupId>
+   <artifactId>spark</artifactId>
+   <version>${flex.sdk.version}</version>
+    <classifier>theme</classifier> 
+   <type>css</type>
+   <scope>theme</scope>
+</dependency> 
+
+    
+  <!--
+  	<dependency>
+		<groupId>com.adobe.flex.sdk</groupId>
+		<artifactId>datavisualization</artifactId>
+		<version>3.0.1.205647</version>
+		<type>swc</type>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.adobe.flex.sdk</groupId>
+		<artifactId>datavisualization</artifactId>
+		<version>3.0.1.205647</version>
+		<classifier>en_US</classifier>
+		<type>swc</type>
+	</dependency>
+	?? -->
+  
+  <!-- flex, standard -->
+		<dependency>
+     	<groupId>com.adobe.flex.framework</groupId>
+        <artifactId>flex-framework</artifactId>
+        <type>pom</type>
+    </dependency>
+
+  
+  </dependencies>
+ 
+ 
+ 
+</project>
