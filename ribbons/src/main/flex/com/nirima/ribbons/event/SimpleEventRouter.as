@@ -6,7 +6,8 @@ package com.nirima.ribbons.event
 	import flash.events.IEventDispatcher;
 
 	/**
-	 * A very simple event router
+	 * A very simple event router, that processes events by passing them
+	 * through to a Context object.
 	 */
 	public class SimpleEventRouter extends EventRouterBase
 	{

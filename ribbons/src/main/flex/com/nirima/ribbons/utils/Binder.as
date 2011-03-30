@@ -70,6 +70,7 @@ package com.nirima.ribbons.utils
 					//logInfo.data = {target:target, targetKey:targetKey, source:source, sourceKey:sourceKey};
 					//scope.getLogger().error(LogTypes.PROPERTY_TYPE_ERROR, logInfo);
 					trace("Error: " + error);
+					trace("Error: " + target+"," + targetKey + "," + source + "," + sourceKey);
 					isWatching = false;
 				}
 			}
@@ -83,7 +84,8 @@ package com.nirima.ribbons.utils
 				{
 					//logInfo = new LogInfo( scope, target, error, null, null,targetKey );
 					//scope.getLogger().error(LogTypes.PROPERTY_NOT_FOUND, logInfo);
-					trace("Error: " + error);
+					trace("Error (Property not found): " + error);
+					trace("Error: " + target+"," + targetKey + "," + source + "," + sourceKey);
 					isWatching = false;
 				}
 				catch(error:TypeError)
@@ -91,7 +93,8 @@ package com.nirima.ribbons.utils
 					//logInfo = new LogInfo( scope, source, error);
 					//logInfo.data = {target:target, targetKey:targetKey, source:source};
 					//scope.getLogger().error(LogTypes.PROPERTY_TYPE_ERROR, logInfo);
-					trace("Error: " + error);
+					trace("Error (Type Error): " + error);
+					trace("Error: " + target+"," + targetKey + "," + source + "," + sourceKey);
 					isWatching = false;
 				}
 			}
@@ -102,17 +105,23 @@ package com.nirima.ribbons.utils
 				{
 					//logInfo = new LogInfo( scope);
 					//scope.getLogger().error(LogTypes.TARGET_KEY_UNDEFINED, logInfo);
+					//trace("Error (Target KEy Undefined): " + error);
+					trace("Error (Target Key Undefined): " + target+"," + targetKey + "," + source + "," + sourceKey);
 					
 				}
 				else if(!target)
 				{
 					//logInfo = new LogInfo( scope);
 					//scope.getLogger().error(LogTypes.TARGET_UNDEFINED, logInfo);
+					//t//race("Error : " + error);
+					trace("Error:(Target Undefined)  " + target+"," + targetKey + "," + source + "," + sourceKey);
 				}
 				else if(!source)
 				{
 					//logInfo = new LogInfo( scope);
 					//scope.getLogger().error(LogTypes.SOURCE_UNDEFINED, logInfo);
+					//trace("Error (Source Undefined): " + error);
+					trace("Error (Source Undefined): " + target+"," + targetKey + "," + source + "," + sourceKey);
 				}
 			}
 			if(!isWatching)
@@ -120,6 +129,8 @@ package com.nirima.ribbons.utils
 				//logInfo = new LogInfo( scope);
 				//logInfo.data = {targetKey:targetKey};
 				//scope.getLogger().info(LogTypes.NOT_BINDING, logInfo);
+				trace("Error: Watch failed...");
+				trace("Error: " + target+"," + targetKey + "," + source + "," + sourceKey);
 			}
 			return isWatching;
 		}

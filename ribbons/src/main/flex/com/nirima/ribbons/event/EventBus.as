@@ -12,7 +12,9 @@ package com.nirima.ribbons.event
 	/**
 	 * The EventBus is the single place where events bubbling up through
 	 * the system are caught. They are then dispatched in order to the 
-	 * relevant EventResponders
+	 * relevant EventResponders.
+	 * 
+	 * You would normally expect one event bus per application (?)
 	 */
 	public class EventBus extends EventRouterBase implements IContext
 	{
@@ -102,6 +104,7 @@ package com.nirima.ribbons.event
 			{
 				// Exit if the context does not want us to continue.
 				var irl:InjectionResult = ctx.injectInto(targetInstance);
+				// TODO: This may be 0 length
 				if( irl != null )
 				{
 					ir.bindings.push(irl.bindings);
@@ -143,6 +146,7 @@ package com.nirima.ribbons.event
 		 */
 		protected override function processEvent(event:Event):void
 		{
+			trace("Event Bus : Process Event " + event);
 			// To which context does this event belong?
 			var ctx:Context = findContextFor(event.target);
 			

@@ -1,5 +1,9 @@
 package com.nirima.ribbons.provider
 {
+	/**
+	 * The constructor provider does not cache instances, and will
+	 * always create a new item
+	 */
 	public class ConstructorProvider implements IProvider
 	{
 		public function ConstructorProvider()

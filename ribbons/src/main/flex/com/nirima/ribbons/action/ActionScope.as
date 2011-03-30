@@ -21,5 +21,10 @@ package com.nirima.ribbons.action
 		{
 			this.provider = provider;
 		}
+		
+		public function get context():Context
+		{
+			return provider as Context;
+		}
 	}
 }

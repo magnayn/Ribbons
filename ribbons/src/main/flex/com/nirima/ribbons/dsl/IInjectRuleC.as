@@ -5,5 +5,10 @@ package com.nirima.ribbons.dsl
 		
 		
 		function fromSourceKey(name:String):IInjectRuleD;
+		
+		function fromSourceClass(clazz:Class):IInjectRuleA;
+		
+		function fromSourceObject(obj:Object):IInjectRuleA;
+		
 	}
 }

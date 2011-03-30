@@ -36,6 +36,18 @@ package com.nirima.ribbons.rule
 			return ruleFactory.ruleComplete(this);
 		}
 		
+		public function fromSourceClass(clazz:Class):IInjectRuleA
+		{
+			this.sourceClass = clazz;
+			return ruleFactory.ruleComplete(this);
+		}
+		
+		public function fromSourceObject(obj:Object):IInjectRuleA
+		{
+			this.sourceObject = obj;
+			return ruleFactory.ruleComplete(this);
+		}
+		
 		public function injectProperty(name:String):IInjectRuleC
 		{
 			this.targetPropertyName = name;

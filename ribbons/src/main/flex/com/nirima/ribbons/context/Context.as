@@ -25,7 +25,7 @@ package com.nirima.ribbons.context
 		
 		private var _liveInjections:Dictionary = new Dictionary();
 		
-		protected var dispatcher:IEventDispatcher;
+		protected var _dispatcher:IEventDispatcher;
 		
 			
 		public function processEvent(event:Event):Boolean
@@ -34,10 +34,14 @@ package com.nirima.ribbons.context
 			return retval;
 		}
 		
+		public function get dispatcher():IEventDispatcher
+		{
+			return _dispatcher;
+		}		
 		
 		public function Context( dispatcher:IEventDispatcher )		
 		{
-			this.dispatcher = dispatcher;
+			this._dispatcher = dispatcher;
 		}
 		
 		// ---------------------------------------------------------------------------------

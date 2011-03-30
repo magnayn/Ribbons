@@ -3,6 +3,11 @@ package com.nirima.ribbons.event
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 
+	/**
+	 * An event router listens for events from rules that have been passed
+	 * to it in register, and processes them.
+	 * 
+	 */
 	public class EventRouterBase
 	{
 		protected var systemDispatcher:IEventDispatcher;
@@ -23,6 +28,7 @@ package com.nirima.ribbons.event
 				{
 					if( systemDispatcher != null )
 					{
+						trace(".. Register " + e.type + " on " + systemDispatcher);
 						systemDispatcher.addEventListener(e.type,processEvent);	
 					}
 					regCount[e.type] = 1;
@@ -43,6 +49,7 @@ package com.nirima.ribbons.event
 				{
 					if( systemDispatcher != null )
 					{
+						trace(".. Unregister " + e.type + " on " + systemDispatcher);
 						systemDispatcher.removeEventListener(e.type,processEvent);
 					}
 				}
@@ -55,12 +62,16 @@ package com.nirima.ribbons.event
 		{
 			for(var type:String in regCount)
 			{
+				trace(".. dispose " + type + " on " + systemDispatcher);
 				systemDispatcher.removeEventListener(type,processEvent);
 			}
 			regCount = new Object();
 		}
 		
-		
+		/**
+		 * Subclasses should implement this function to determine
+		 * what processing to do.
+		 */ 
 		protected function processEvent(event:Event):void
 		{
 			

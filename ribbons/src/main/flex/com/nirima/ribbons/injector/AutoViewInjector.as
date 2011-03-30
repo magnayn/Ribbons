@@ -8,6 +8,12 @@ package com.nirima.ribbons.injector
 	
 	import mx.events.FlexEvent;
 
+	/**
+	 * The auto view injector listens for creation events of controls.
+	 * On creation, it asks the context whether it wants to inject any values. If so,
+	 * it registers for the removal event - when this happens, it calls the event
+	 * bus back in order to have it remove any live injections.
+	 */
 	public class AutoViewInjector
 	{
 		private var _dispatcher:IEventDispatcher;
@@ -58,7 +64,7 @@ package com.nirima.ribbons.injector
 		
 		protected function creationComplete(event:FlexEvent):void
 		{
-			trace(event + " <>" + event.target );
+			//trace(event + " <>" + event.target );
 			var injectionResult:InjectionResult = _eventBus.injectInto(event.target);
 			if( injectionResult != null && !injectionResult.isEmpty() )
 			{
@@ -68,14 +74,14 @@ package com.nirima.ribbons.injector
 		
 		protected function removed(event:FlexEvent):void
 		{
-			trace(event + " -" + event.target );
+			//trace(event + " -" + event.target );
 			_eventBus.removeInjectionsFrom(event.target);
 			event.target.removeEventListener(FlexEvent.REMOVE, removed);
 		}
 		
 		protected function added(event:RibbonsEvent):void
 		{
-			trace(event + " +" + event.view );
+			//trace(event + " +" + event.view );
 			var injectionResult:InjectionResult = _eventBus.injectInto(event.view);
 			if( injectionResult != null && !injectionResult.isEmpty() )
 			{

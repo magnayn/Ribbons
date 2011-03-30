@@ -26,6 +26,11 @@ package com.nirima.ribbons.app
 			return __instance;
 		}
 		
+		/**
+		 * parent: the root, parent application object
+		 * contextClass: the class name of the 'main' context to create
+		 * and add to the bus. 
+		 */
 		public function RibbonsApplication(parent:Object, contextClass:Class)
 		{
 			trace("App");
