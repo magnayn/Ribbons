@@ -62,7 +62,7 @@ package com.nirima.ribbons.injector
 		
 		protected function mapClass(targetInstance:Object, rule:Rule, scope:IProvider):void
 		{
-			if( scope instanceof Context )
+			if( scope is Context )
 			{
 				var context:Context = scope as Context;
 				

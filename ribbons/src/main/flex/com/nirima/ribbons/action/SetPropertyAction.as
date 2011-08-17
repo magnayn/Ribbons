@@ -16,10 +16,10 @@ package com.nirima.ribbons.action
 	{
 		public var actionDefinition:IActionDefinition;
 		
-		var klass:Class;
-		var source:Object;
+		internal var klass:Class;
+		internal var source:Object;
 		
-		var property:String;
+		internal var property:String;
 		
 		public function SetPropertyAction(ad:IActionDefinition, property:String)
 		{
