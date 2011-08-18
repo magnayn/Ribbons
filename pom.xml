@@ -67,4 +67,31 @@
      </plugins>
     </pluginManagement>
     </build>
+    
+    <repositories>
+        <repository>
+            <id>flex</id>
+            <url>https://repository.sonatype.org/content/groups/flexgroup</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+ 
+ <pluginRepositories>
+        <pluginRepository>
+            <id>flex</id>
+            <url>https://repository.sonatype.org/content/groups/flexgroup</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+    
 </project>

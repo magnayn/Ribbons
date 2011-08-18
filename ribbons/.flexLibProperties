@@ -1,43 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<flexLibProperties includeAllClasses="true" version="3">
-  <includeClasses>
-    <classEntry path="com.nirima.ribbons.rule.RuleFactory"/>
-    <classEntry path="com.nirima.ribbons.rule.Rule"/>
-    <classEntry path="com.nirima.ribbons.injector.InjectionResult"/>
-    <classEntry path="com.nirima.ribbons.provider.IProvider"/>
-    <classEntry path="com.nirima.ribbons.utils.Binder"/>
-    <classEntry path="com.nirima.ribbons.context.Context"/>
-    <classEntry path="com.nirima.ribbons.provider.CacheProvider"/>
-    <classEntry path="com.nirima.ribbons.provider.ConstructorProvider"/>
-    <classEntry path="com.nirima.ribbons.event.IEventResponder"/>
-    <classEntry path="com.nirima.ribbons.dsl.IEventRuleRoot"/>
-    <classEntry path="com.nirima.ribbons.dsl.IActionDefinition"/>
-    <classEntry path="com.nirima.ribbons.dsl.IActionDefinitionG"/>
-    <classEntry path="com.nirima.ribbons.dsl.IActionDefinitionF"/>
-    <classEntry path="com.nirima.ribbons.dsl.IActionDefinitionH"/>
-    <classEntry path="com.nirima.ribbons.event.EventResponderImpl"/>
-    <classEntry path="com.nirima.ribbons.dsl.IActionDefinitionJ"/>
-    <classEntry path="com.nirima.ribbons.dsl.IActionDefinitionK"/>
-    <classEntry path="com.nirima.ribbons.event.EventBus"/>
-    <classEntry path="com.nirima.ribbons.event.EventRuleRootImpl"/>
-    <classEntry path="com.nirima.ribbons.action.ActionDefinitionImpl"/>
-    <classEntry path="com.nirima.ribbons.action.InvokeMethodAction"/>
-    <classEntry path="com.nirima.ribbons.action.AnnounceEventAction"/>
-    <classEntry path="com.nirima.ribbons.action.InlineInvokeAction"/>
-    <classEntry path="com.nirima.ribbons.action.SetPropertyAction"/>
-    <classEntry path="com.nirima.ribbons.event.IEventHandler"/>
-    <classEntry path="com.nirima.ribbons.action.IAction"/>
-    <classEntry path="com.nirima.ribbons.action.ActionScope"/>
-    <classEntry path="com.nirima.ribbons.context.Bind"/>
-    <classEntry path="com.nirima.ribbons.injector.AutoViewInjector"/>
-    <classEntry path="com.nirima.ribbons.context.IContext"/>
-    <classEntry path="com.nirima.ribbons.app.RibbonsApplication"/>
-    <classEntry path="com.nirima.ribbons.app.RibbonsPopUpManager"/>
-    <classEntry path="com.nirima.ribbons.event.SimpleEventRouter"/>
-    <classEntry path="com.nirima.ribbons.event.EventRouterBase"/>
-    <classEntry path="com.nirima.ribbons.action.StopEventAction"/>
-    <classEntry path="com.nirima.ribbons.event.RibbonsEvent"/>
-  </includeClasses>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses/>
   <includeResources/>
   <namespaceManifests/>
 </flexLibProperties>
