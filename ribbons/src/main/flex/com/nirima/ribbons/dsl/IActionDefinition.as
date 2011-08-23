@@ -14,6 +14,14 @@ package com.nirima.ribbons.dsl
 		
 		function setProperty(propertyName:String):IActionDefinitionJ;
 		
+		/**
+		 * Stop event propagation at this point
+		 */
 		function stopEvent():IActionDefinition;
+		
+		/**
+		 * Broadcast this event
+		 */
+		function broadcastEvent():IActionDefinition;
 	}
 }

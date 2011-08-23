@@ -76,10 +76,15 @@ package com.nirima.ribbons.context
 			
 			var injectionResult:InjectionResult = injector.injectInto(targetInstance, this);
 			
-			if( injectionResult == null || injectionResult.isEmpty() )
-			{
-				return injectionResult;
-			}
+			// NM: I believe this is a bug. IT is attempting to optimise away the case
+			// where there are no rules fired - but the InjectionResult may have additional
+			// bindings added by the user, therefore we want it to be in the live injections map,
+			// otherwise those bindings will never be cleared.
+			
+			//if( injectionResult == null || injectionResult.isEmpty() )
+			//{
+			//	return injectionResult;
+			//}
 			
 			_liveInjections[ targetInstance ] =  injectionResult ;
 			return injectionResult;

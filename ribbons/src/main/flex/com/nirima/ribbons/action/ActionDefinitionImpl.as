@@ -53,5 +53,12 @@ package com.nirima.ribbons.action
 			eventRuleRoot.actions.push( item );
 			return this;
 		}
+		
+		public function broadcastEvent():IActionDefinition
+		{
+			var item:IAction = new BroadcastEventAction(this);
+			eventRuleRoot.actions.push( item );
+			return this;
+		}
 	}
 }

@@ -168,7 +168,19 @@ package com.nirima.ribbons.event
 			}
 		}
 		
-		
+		/**
+		 * Broadcast an event to any context that could be listening.
+		 * 
+		 */
+		public function broadcastEvent(event:Event, fromContext:Context):void {
+			for(var key:Object in parents)
+			{
+				// Do not re-propagate to the context that this event came from, otherwise we
+				// might loop forever.
+				if( key != fromContext )
+					key.processEvent(event);
+			}
+		}
 		
 	
 		protected function findContextFor(o:Object):Context
