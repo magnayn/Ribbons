@@ -80,5 +80,10 @@ package com.nirima.ribbons.injector
 			}
 			
 		}
+		
+		public function dump():void {
+			trace("Bindings: " + bindings);
+			trace("Contexts: " + contexts);
+		}
 	}
 }

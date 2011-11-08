@@ -121,6 +121,13 @@ package com.nirima.ribbons.context
 			_liveInjections = new Dictionary();
 		}
 		
-
+		public function dump():void {
+			trace("Live Injections:");
+			for each(var injectionResult:InjectionResult in _liveInjections)
+			{
+				injectionResult.dump();	
+			}
+		}
+		
 	}
 }
