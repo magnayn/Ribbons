@@ -8,7 +8,8 @@ package com.nirima.ribbons.event
 	{
 		/*-.........................................Constants..........................................*/
 		
-		public static const VIEW_ADDED: String         = "viewAddedEvent";
+		public static const VIEW_ADDED: String           = "viewAddedEvent";
+		public static const VIEW_REMOVED: String         = "viewRemovedEvent";
 		
 		/*-.........................................Properties.........................................*/
 		

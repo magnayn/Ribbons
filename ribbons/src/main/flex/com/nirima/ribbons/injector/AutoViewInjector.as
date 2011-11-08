@@ -42,6 +42,7 @@ package com.nirima.ribbons.injector
 				_dispatcher.removeEventListener(FlexEvent.CREATION_COMPLETE, creationComplete, true);
 				
 				_dispatcher.removeEventListener(RibbonsEvent.VIEW_ADDED, added, false);
+				_dispatcher.removeEventListener(RibbonsEvent.VIEW_REMOVED, removed2, false);
 			}
 			
 			_dispatcher = d;
@@ -58,6 +59,7 @@ package com.nirima.ribbons.injector
 				_dispatcher.addEventListener(FlexEvent.CREATION_COMPLETE, creationComplete);
 				_dispatcher.addEventListener(FlexEvent.CREATION_COMPLETE, creationComplete, true);
 				_dispatcher.addEventListener(RibbonsEvent.VIEW_ADDED, added, false);
+				_dispatcher.addEventListener(RibbonsEvent.VIEW_REMOVED, removed2, false);
 			}
 		}
 		
@@ -77,6 +79,12 @@ package com.nirima.ribbons.injector
 			//trace(event + " -" + event.target );
 			_eventBus.removeInjectionsFrom(event.target);
 			event.target.removeEventListener(FlexEvent.REMOVE, removed);
+		}
+		
+		protected function removed2(event:RibbonsEvent):void
+		{
+			//trace(event + " -" + event.target );
+			_eventBus.removeInjectionsFrom(event.view);			
 		}
 		
 		protected function added(event:RibbonsEvent):void
