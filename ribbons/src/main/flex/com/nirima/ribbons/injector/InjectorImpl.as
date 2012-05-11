@@ -27,11 +27,9 @@ package com.nirima.ribbons.injector
 		{
 			var injectionResult:InjectionResult = new InjectionResult();
 			
-			var objClass : Class = getConstructor(targetInstance);
-			
 			for each( var rule:RuleFactory in rules )
 			{
-				if( rule.targetClass == objClass )
+				if( targetInstance is rule.targetClass )
 				{
 					injectionResult.inject(targetInstance, rule, scope);
 				}

@@ -1,26 +1,22 @@
 /**
  * Test Context for injecting values from an object.
  */
-package com.nirima.ribbons.injector.helpers
+package com.nirima.ribbons.injector.sources
 {
 
 import com.nirima.ribbons.context.Context;
 
-import flash.events.IEventDispatcher;
+import flash.events.EventDispatcher;
 
 public class InjectFromObjectTestContext extends Context
 {
 
     public var sourceProperty:Object;
 
-    public function InjectFromObjectTestContext(dispatcher:IEventDispatcher, valueToInject:Object)
+    public function InjectFromObjectTestContext(valueToInject:Object)
     {
         this.sourceProperty = valueToInject;
-        super(dispatcher);
-
-        injector.newRule()
-                .whenInjectingInto(TestTarget).injectProperty("propertyFromSourceKey")
-                .fromSourceKey("sourceProperty").inObject(this);
+        super(new EventDispatcher());
 
         injector.newRule()
                 .whenInjectingInto(TestTarget).injectProperty("propertyFromSourceKey")
@@ -29,12 +25,6 @@ public class InjectFromObjectTestContext extends Context
         injector.newRule()
                 .whenInjectingInto(TestTarget).injectProperty("propertyFromSourceObject")
                 .fromSourceObject(valueToInject);
-
-        injector.newRule()
-                .whenInjectingInto(TestTarget).injectProperty("propertyFromSourceObject")
-                .fromSourceObject(valueToInject);
-
-
     }
 }
 }

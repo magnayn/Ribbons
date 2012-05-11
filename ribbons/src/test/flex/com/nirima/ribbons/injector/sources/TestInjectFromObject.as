@@ -1,10 +1,5 @@
-package com.nirima.ribbons.injector
+package com.nirima.ribbons.injector.sources
 {
-
-import com.nirima.ribbons.injector.helpers.InjectFromObjectTestContext;
-import com.nirima.ribbons.injector.helpers.TestTarget;
-
-import flash.events.EventDispatcher;
 
 import flexunit.framework.TestCase;
 
@@ -52,7 +47,7 @@ public class TestInjectFromObject extends TestCase
 
     private function setupContextToInjectObject(prop:Object):void
     {
-        context = new InjectFromObjectTestContext(new EventDispatcher(), prop);
+        context = new InjectFromObjectTestContext(prop);
     }
 
 
