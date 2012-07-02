@@ -74,7 +74,7 @@ package com.nirima.ribbons.utils
 					isWatching = false;
 				}
 			}
-			else if(target && targetKey && source)
+			else if(target && targetKey)
 			{
 				try
 				{
@@ -116,13 +116,7 @@ package com.nirima.ribbons.utils
 					//t//race("Error : " + error);
 					trace("Error:(Target Undefined)  " + target+"," + targetKey + "," + source + "," + sourceKey);
 				}
-				else if(!source)
-				{
-					//logInfo = new LogInfo( scope);
-					//scope.getLogger().error(LogTypes.SOURCE_UNDEFINED, logInfo);
-					//trace("Error (Source Undefined): " + error);
-					trace("Error (Source Undefined): " + target+"," + targetKey + "," + source + "," + sourceKey);
-				}
+
 			}
 			if(!isWatching)
 			{

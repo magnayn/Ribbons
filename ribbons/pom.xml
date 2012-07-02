@@ -15,7 +15,8 @@
     </parent> 
   
   <build>
-		<sourceDirectory>src/main/flex</sourceDirectory> 
+		<sourceDirectory>src/main/flex</sourceDirectory>
+      <testSourceDirectory>src/test/flex</testSourceDirectory>
 		<plugins>
 
 
