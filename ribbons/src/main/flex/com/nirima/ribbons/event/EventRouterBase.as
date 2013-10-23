@@ -74,7 +74,7 @@ package com.nirima.ribbons.event
 		 */ 
 		protected function processEvent(event:Event):void
 		{
-			
+			throw new Error("Must implement processEvent for event " + event);
 		}
 	}
 }

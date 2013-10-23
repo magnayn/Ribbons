@@ -33,7 +33,10 @@ package com.nirima.ribbons.app
 		 */
 		public function RibbonsApplication(parent:Object, contextClass:Class)
 		{
-			trace("App");
+			if( __instance != null )
+				throw new Error("Ribbons Error: You are trying to create a new Ribbons Application when one already exists. Check that this is not an injector gone awry.");
+				
+			
 			this.app = IEventDispatcher(parent);
 			
 			bus = new EventBus(app);
