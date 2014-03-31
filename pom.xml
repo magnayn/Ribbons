@@ -6,9 +6,24 @@
   <artifactId>ribbons</artifactId>
   <packaging>pom</packaging>
   <version>1.0.3-SNAPSHOT</version>
-  <name>Flex Ribbons</name>
-  <url>http://www.nirima.com</url>
+ 
 
+
+  <parent>
+      <groupId>org.sonatype.oss</groupId>
+      <artifactId>oss-parent</artifactId>
+      <version>7</version>
+  </parent>
+
+  <name>Flex Ribbons</name>
+  <url>https://github.com/magnayn/ribbons</url>
+  <description>An event-driven flex framework</description>
+
+  <scm>
+        <connection>scm:git:git@github.com:magnayn/ribbons.git</connection>
+        <url>scm:git:git@github.com:magnayn/ribbons.git</url>
+        <developerConnection>scm:git:git@github.com:magnayn/ribbons.git</developerConnection>
+  </scm>
 
   <properties>    
     <flex.sdk.version>4.11.0.20131017</flex.sdk.version>  
@@ -81,5 +96,5 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-    
+
 </project>
