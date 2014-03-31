@@ -56,21 +56,25 @@ package com.nirima.ribbons.injector
 				// However, the creation for the object *itself* will only appear AT_TARGET, and that
 				// is only captured in non-use-capture event listeners.
 				
-				_dispatcher.addEventListener(FlexEvent.CREATION_COMPLETE, creationComplete);
-				_dispatcher.addEventListener(FlexEvent.CREATION_COMPLETE, creationComplete, true);
-				_dispatcher.addEventListener(RibbonsEvent.VIEW_ADDED, added, false);
-				_dispatcher.addEventListener(RibbonsEvent.VIEW_REMOVED, removed2, false);
+				// We add as weak references - the events won't keep the auto view injector around, which is
+				// what we want (though should not make any difference as this is a 1-way binding).
+				
+				_dispatcher.addEventListener(FlexEvent.CREATION_COMPLETE, creationComplete, false, 0, true);
+				_dispatcher.addEventListener(FlexEvent.CREATION_COMPLETE, creationComplete, true, 0, true);
+				_dispatcher.addEventListener(RibbonsEvent.VIEW_ADDED, added, false, 0, true);
+				_dispatcher.addEventListener(RibbonsEvent.VIEW_REMOVED, removed2, false, 0, true);
 			}
 		}
 		
 		
 		protected function creationComplete(event:FlexEvent):void
 		{
-			//trace(event + " <>" + event.target );
+			//getLogger().warn(">>> CreateEvent on " + event.target );
 			var injectionResult:InjectionResult = _eventBus.injectInto(event.target);
 			if( injectionResult != null && !injectionResult.isEmpty() )
 			{
-				event.target.addEventListener(FlexEvent.REMOVE, removed);
+				trace("Register for Remove events on " + event.target);	
+				event.target.addEventListener(FlexEvent.REMOVE, removed, false, 0, true);
 			}
 		}
 		
@@ -93,7 +97,7 @@ package com.nirima.ribbons.injector
 			var injectionResult:InjectionResult = _eventBus.injectInto(event.view);
 			if( injectionResult != null && !injectionResult.isEmpty() )
 			{
-				event.view.addEventListener(FlexEvent.REMOVE, removed);
+				event.view.addEventListener(FlexEvent.REMOVE, removed, false, 0, true);
 			}
 		}
 		

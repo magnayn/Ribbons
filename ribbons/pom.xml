@@ -11,16 +11,16 @@
    <parent>
   		<groupId>com.nirima</groupId>
  		 <artifactId>ribbons</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.3-SNAPSHOT</version>
     </parent> 
   
   <build>
 		<sourceDirectory>src/main/flex</sourceDirectory>
-      <testSourceDirectory>src/test/flex</testSourceDirectory>
+     <!--  <testSourceDirectory>src/test/flex</testSourceDirectory> -->
 		<plugins>
 
 
-<plugin>
+<!-- <plugin>
    <artifactId>maven-dependency-plugin</artifactId>
       <executions>
          <execution>
@@ -40,10 +40,10 @@
             </configuration>
        </execution>
     </executions>
-</plugin> 
+</plugin>  -->
 
 		<plugin>
-        	<groupId>org.sonatype.flexmojos</groupId>
+        	  <groupId>net.flexmojos.oss</groupId>
             <artifactId>flexmojos-maven-plugin</artifactId>
            <executions>
 
@@ -61,10 +61,10 @@
 				
 				<mergeResourceBundle>true</mergeResourceBundle> 
 				
-				<themes>
+			<!-- 	<themes>
 			         <theme>${project.build.directory}/themes/spark-theme.css</theme>
 			         <theme>${project.build.directory}/themes/halo-theme.swc</theme>
-			      </themes> 
+			      </themes>  -->
 			</configuration>
  
 		</plugin>
@@ -75,178 +75,17 @@
   	
         
   <dependencies>
-  <!-- /////////////////// ///////////////////  ///////////////////  ///////////////////  -->
-        <!-- Becuase FLEX is really stupid, the following order is REALLY IMPORTANT -->
-        <!-- /////////////////// ///////////////////  ///////////////////  ///////////////////  -->
-         <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>playerglobal</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <classifier>10.2</classifier>
-            <scope>external</scope>
-        </dependency>
-
         <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>framework</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>textLayout</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>spark</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>sparkskins</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>rpc</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>charts</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>spark_dmv</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>osmf</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>mx</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>advancedgrids</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>external</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>authoringsupport</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>merged</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>flash-integration</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>swc</type>
-            <scope>merged</scope>
-        </dependency>
-        <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-
-        <!-- ??? What is this for ? -->
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>framework</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>zip</type>
-            <classifier>configs</classifier>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>advancedgrids</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>charts</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>framework</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>mx</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>osmf</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>rpc</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>spark</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>textLayout</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>flash-integration</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.flex.framework</groupId>
-            <artifactId>playerglobal</artifactId>
-            <version>${flex.sdk.version}</version>
-            <type>rb.swc</type>
-            <!--<scope>external</scope>-->
-        </dependency>
+          <groupId>org.apache.flex.framework</groupId>
+          <artifactId>flex-framework</artifactId>
+          <version>${flex.sdk.version}</version>
+          <type>pom</type>
+      </dependency>
 
         <!-- /////////////////// ///////////////////  ///////////////////  ///////////////////  -->
         <!-- Becuase FLEX is really stupid, the preceding order is REALLY IMPORTANT -->
         <!-- /////////////////// ///////////////////  ///////////////////  ///////////////////  -->
-
+<!-- 
   	
    <dependency>
       <groupId>com.adobe.flexunit</groupId>
@@ -254,8 +93,8 @@
       <version>0.90</version>
       <type>swc</type>
       <scope>test</scope>
-    </dependency>
-	
+    </dependency> -->
+	<!-- 
 	<dependency>
    <groupId>com.adobe.flex.framework</groupId>
    <artifactId>halo</artifactId>
@@ -271,7 +110,7 @@
     <classifier>theme</classifier> 
    <type>css</type>
    <scope>theme</scope>
-</dependency> 
+</dependency>  -->
 
     
 

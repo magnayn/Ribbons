@@ -107,7 +107,7 @@ package com.nirima.ribbons.event
 				// TODO: This may be 0 length
 				if( irl != null )
 				{
-					ir.bindings.push(irl.bindings);
+					ir.bindings = ir.bindings.concat(irl.bindings);
 				}
 				
 				// look for the parent, and try again

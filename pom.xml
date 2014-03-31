@@ -5,13 +5,13 @@
   <groupId>com.nirima</groupId>
   <artifactId>ribbons</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.3-SNAPSHOT</version>
   <name>Flex Ribbons</name>
   <url>http://www.nirima.com</url>
 
 
   <properties>    
-    <flex.sdk.version>4.5.1.21328</flex.sdk.version>  
+    <flex.sdk.version>4.11.0.20131017</flex.sdk.version>  
   </properties>
 
   <modules>
@@ -38,19 +38,19 @@
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>org.sonatype.flexmojos</groupId>
+             <groupId>net.flexmojos.oss</groupId>
           <artifactId>flexmojos-maven-plugin</artifactId>
-          <version>4.0-RC2</version>
+          <version>7.0.0-SNAPSHOT</version>
           <extensions>true</extensions>
           
-	     <dependencies>
+	  <!--    <dependencies>
               <dependency>
                 <groupId>com.adobe.flex</groupId>
                 <artifactId>compiler</artifactId>
                 <version>${flex.sdk.version}</version>
                 <type>pom</type>
               </dependency>
-            </dependencies>
+            </dependencies> -->
      </plugin> 
      </plugins>
     </pluginManagement>
