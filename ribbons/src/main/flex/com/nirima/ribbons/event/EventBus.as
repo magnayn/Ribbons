@@ -8,6 +8,10 @@ package com.nirima.ribbons.event
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 	import flash.utils.Dictionary;
+	
+	import mx.collections.ArrayCollection;
+	import mx.collections.ArrayList;
+	import mx.collections.IList;
 
 	/**
 	 * The EventBus is the single place where events bubbling up through
@@ -23,7 +27,9 @@ package com.nirima.ribbons.event
 		
 		protected var parents:Dictionary = new Dictionary();
 		
-		protected var defaultContext:Context;
+		public var defaultContext:Context;
+		
+		
 		
 		public function EventBus(dispatcher:IEventDispatcher = null)
 		{
@@ -183,20 +189,26 @@ package com.nirima.ribbons.event
 		}
 		
 	
-		protected function findContextFor(o:Object):Context
+		public function findContextFor(o:Object):Context
 		{
+			
+			
 			while(o != null)
 			{
+			
 				for ( var ctx:Object in parents )
 				{
 					if( ctx.dispatcher == o )
 						return ctx as Context;
 				}
+						
 				
 				if( RibbonsPopUpManager.childToParentMap[o] != null )
 				{
 					o = RibbonsPopUpManager.childToParentMap[o];
 				}
+
+
 				else
 				{				
 					o = o.parent;
@@ -204,5 +216,6 @@ package com.nirima.ribbons.event
 			}
 			return null;
 		}
+		
 	}
 }
