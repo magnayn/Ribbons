@@ -1,4 +1,4 @@
-package com.nirima.ribbons.injector.helpers
+package com.nirima.ribbons.injector.sources
 {
 public class TestTarget
 {

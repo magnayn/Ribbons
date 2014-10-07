@@ -22,23 +22,27 @@ package com.nirima.ribbons.injector
 		{
 			for each(var rule:Rule in rf.rules )
 			{
-				if( rule.mapClass )
-				{
-					mapClass(targetInstance, rule, scope);
-				}
-				else
-				{
-					var object:Object = rule.sourceObject;
-					if( object == null )
-					{
-						object = scope.getInstance(rule.sourceClass);
-					}
-					
-					var b:Binder = new Binder();
-					b.bind(targetInstance, rule.targetPropertyName, object, rule.sourceKey);
-					
-					bindings.push(b);
-				}
+                var objClass : Class = getConstructor(targetInstance);
+                if (rule._includeDerivatives || objClass == rf.targetClass)
+                {
+                    if( rule.mapClass )
+                    {
+                        mapClass(targetInstance, rule, scope);
+                    }
+                    else
+                    {
+                        var object:Object = rule.sourceObject;
+                        if( object == null )
+                        {
+                            object = scope.getInstance(rule.sourceClass);
+                        }
+
+                        var b:Binder = new Binder();
+                        b.bind(targetInstance, rule.targetPropertyName, object, rule.sourceKey);
+
+                        bindings.push(b);
+                    }
+                }
 			}
 		}
 		
